@@ -30,9 +30,14 @@ public class C01_TekrarTesti {
         //5- Arama cubuguna “Nutella” yazip aratin
         WebElement aramaKutusu=driver.findElement(By.xpath("//input[@name='q']"));
         aramaKutusu.sendKeys("Nutella" + Keys.ENTER );
+
         //6-Bulunan sonuc sayisini yazdirin
         WebElement sonucSayisiElementi=driver.findElement(By.xpath("//div[@id='result-stats']"));
         System.out.println(sonucSayisiElementi.getText());
+      // String[]sonucSayisiElementi=driver.findElement(By.xpath("//div[@id='result-stats']")).getText().split(" ");
+       // System.out.println("sonuc sayısı " +sonucSayisiElementi[1]);
+
+
         //7- sonuc sayisinin 10 milyon’dan fazla oldugunu test edin
 
         String sonucSayisiString=sonucSayisiElementi.getText();
@@ -40,6 +45,8 @@ public class C01_TekrarTesti {
         String sonucKelimeleri[]=sonucSayisiString.split(" ");
         String sonucNutellaSayisiString=sonucKelimeleri[1]; // 73.900.000
       sonucNutellaSayisiString=sonucNutellaSayisiString.replace(".","");
+
+
             //System.out.println(sonucNutellaSayisiString);
         //sonucNutellaSayisiString=sonucNutellaSayisiString.replace(".","");
         int nutellaAramaSonucu=Integer.parseInt(sonucNutellaSayisiString);
